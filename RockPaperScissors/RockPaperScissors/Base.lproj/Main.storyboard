@@ -54,7 +54,7 @@
                                 <rect key="frame" x="107" y="528" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 1 Wins!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efI-o7-UTk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's Play!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efI-o7-UTk">
                                 <rect key="frame" x="146" y="463" width="143" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -66,7 +66,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="p1Button" destination="yWm-Uv-P4O" id="Nws-b3-HNs"/>
                         <outlet property="p1item" destination="8bF-kF-MnG" id="FFH-na-Zwo"/>
+                        <outlet property="p2Button" destination="GUu-H9-0xC" id="9Ky-BY-lyE"/>
                         <outlet property="p2item" destination="Wlx-Bp-EeZ" id="vk9-yw-Tez"/>
                         <outlet property="result" destination="efI-o7-UTk" id="YfL-Lu-ScH"/>
                     </connections>

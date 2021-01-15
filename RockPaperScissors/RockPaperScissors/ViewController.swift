@@ -13,6 +13,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var p1item: UIImageView!
   @IBOutlet weak var p2item: UIImageView!
   @IBOutlet weak var result: UILabel!
+  @IBOutlet weak var p1Button: UIButton!
+  @IBOutlet weak var p2Button: UIButton!
   
   // array of rock, paper, scissors
   let itemArray: [UIImage] = [(UIImage(named: "paper")!),(UIImage(named: "rock")!),(UIImage(named: "scissors")!)]
@@ -23,20 +25,46 @@ class ViewController: UIViewController {
     if let randomItem = itemArray.randomElement() {
       p1item.image = randomItem
     }
+    sender.setTitle("Waiting..", for: .normal);
+    sender.isEnabled = false;
     
-    // update result
-    updateResult()
+    if p1Button.isEnabled == false && p2Button.isEnabled == false{
+      updateResult()
+      
+      // reset 1 sec after displaying results
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        self.reset()
+      }
+    }
   }
-  
+
   // p2 button
   @IBAction func p2ButtonPressed(_ sender: UIButton) {
     // randomize item(rock, paper scissors)
    if let randomItem = itemArray.randomElement() {
      p2item.image = randomItem
    }
+    sender.setTitle("Waiting..", for: .normal)
+    sender.isEnabled = false;
     
-    // update result
-    updateResult()
+    if p1Button.isEnabled == false && p2Button.isEnabled == false{
+      updateResult()
+      // reset 1 sec after displaying results
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        self.reset()
+      }
+    }
+  }
+  
+  // reset back to start
+  func reset() {
+    p1Button.setTitle( "P1 GO", for: .normal)
+    p2Button.setTitle( "P2 GO", for: .normal)
+    
+    p1Button.isEnabled = true
+    p2Button.isEnabled = true
+    
+    result.text! = "Play Again!"
   }
   
   // update results
@@ -55,6 +83,8 @@ class ViewController: UIViewController {
          result.text = "Its a tie!"
     }
   }
+  
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
